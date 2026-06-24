@@ -126,6 +126,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         //     const type = this.checked ? 'text' : 'password';
         //     password.setAttribute('type', type);
         // });
+        // 
     </script>
 </body>
 </html>
