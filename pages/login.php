@@ -1,14 +1,15 @@
 <?php
 session_start();
 require_once '../classes/AuthClass.php';
-
-if (isset($_SESSION['user_id'])) {
-    if (isset($_SESSION['user_type']) && $_SESSION['user_type'] === 'admin') {
-        header("Location: admindashboard.php");
-    } else {
-        header("Location: home.php");
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_SESSION['user_id'])) {
+        if (isset($_SESSION['user_type']) && $_SESSION['user_type'] === 'admin') {
+            header("Location: admindashboard.php");
+        } else {
+            header("Location: home.php");
+        }
+        exit();
     }
-    exit();
 }
 
 $displayResult = "";
@@ -84,9 +85,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <div class="mb-4">
                             <label class="form-label text-muted-custom mb-0 fw-medium">Password</label>
                             <div class="password-field">
-                                <input type="checkbox" class="password-checkbox" id="togglePassword">
+                                <!-- <input type="checkbox" class="password-checkbox" id="togglePassword"> 
                                 <label class="password-toggle" for="togglePassword">
-                                    <i class="fa fa-eye"></i>
+                                     <i class="fa fa-eye"></i> -->
                                 </label>
                                 <input class="form-control-minimal no-js-password" type="password" name="password" placeholder="*************" required autocomplete="current-password">
                             </div>
@@ -117,13 +118,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        const togglePassword = document.querySelector('#togglePassword');
-        const password = document.querySelector('.no-js-password');
-
-        togglePassword.addEventListener('change', function (e) {
-            const type = this.checked ? 'text' : 'password';
-            password.setAttribute('type', type);
-        });
+        // // Toggle password visibility
+        // const togglePassword = document.querySelector('#togglePassword');
+        // const password = document.querySelector('.no-js-password');
+                        
+        // togglePassword.addEventListener('change', function (e) {
+        //     const type = this.checked ? 'text' : 'password';
+        //     password.setAttribute('type', type);
+        // });
     </script>
 </body>
 </html>

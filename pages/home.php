@@ -1,6 +1,6 @@
 <?php
 session_start();
-// require_once '../classes/UserClass.php';
+require_once '../classes/UserClass.php';
 require_once 'C:\xampp\htdocs\yay\finalJOBCIP\classes\AuthClass.php';
 
 if (isset($_GET['logout'])) {
